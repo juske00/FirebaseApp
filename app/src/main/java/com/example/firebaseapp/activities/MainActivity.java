@@ -23,9 +23,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if(FirebaseAuth.getInstance().getCurrentUser().isAnonymous() == false){
+        if(FirebaseAuth.getInstance().getCurrentUser() != null){
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             startActivity(new Intent(getApplicationContext(), UserPage.class));
         }
+
         appNameTextView = findViewById(R.id.appNameTxtView);
         wwyTextView = findViewById(R.id.wwyTxtView);
         loginButton = findViewById(R.id.loginButton);

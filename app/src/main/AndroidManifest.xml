@@ -10,20 +10,23 @@
         android:roundIcon="@mipmap/icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.FirebaseApp">
-        <activity android:name=".activities.LoginActivity">
-            android:theme="@style/Theme.FirebaseApp.NoActionBar"
-        </activity>
-        <activity android:name=".activities.SportActivity"
-            android:theme="@style/Theme.FirebaseApp.NoActionBar"
-            />
+
+        <activity android:name=".activities.LoginActivity"
+            android:theme="@style/Theme.FirebaseApp.NoActionBar"/>
         <activity android:name=".activities.ProfileActivity"
             android:theme="@style/Theme.FirebaseApp.NoActionBar"/>
         <activity
             android:name=".activities.FootballActivity"
-            android:label="@string/title_activity_football"
             android:theme="@style/Theme.FirebaseApp.NoActionBar" />
         <activity android:name=".activities.ChatActivity"
             android:theme="@style/Theme.FirebaseApp.NoActionBar"/>
+        <activity android:name=".activities.MainActivity"
+            android:theme="@style/Theme.FirebaseApp.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".activities.RunActivity"
             android:theme="@style/Theme.FirebaseApp.NoActionBar"/>
         <activity android:name=".activities.AddRun"
@@ -38,13 +41,6 @@
             android:theme="@style/Theme.FirebaseApp.NoActionBar"/>
         <activity android:name=".activities.RegisterActivity"
             android:theme="@style/Theme.FirebaseApp.NoActionBar"/>
-        <activity android:name=".activities.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            android:theme="@style/Theme.FirebaseApp.NoActionBar"
-        </activity>
     </application>
 
 </manifest>

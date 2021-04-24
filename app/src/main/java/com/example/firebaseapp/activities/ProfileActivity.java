@@ -36,7 +36,7 @@ public class ProfileActivity extends AppCompatActivity {
     public Uri imageUri;
     private FirebaseStorage storage;
     private StorageReference storageReference;
-    private Button changeProfilePic;
+    private Button changeProfilePic, signOutButton;
     private BottomNavigationView bottomNavigationView;
     private TextView ageTxtView;
     private TextView nameTxtView;
@@ -49,6 +49,7 @@ public class ProfileActivity extends AppCompatActivity {
         ageTxtView = findViewById(R.id.ageTxtView);
         nameTxtView = findViewById(R.id.nameTxtView);
         profileTxtView = findViewById(R.id.profileTxtView);
+        signOutButton = findViewById(R.id.signOutButton);
         profilePic = findViewById(R.id.profilePic);
         changeProfilePic = findViewById(R.id.changePic);
         String uid;
@@ -56,6 +57,7 @@ public class ProfileActivity extends AppCompatActivity {
             uid = getIntent().getStringExtra("id");
             if(!uid.equals(FirebaseAuth.getInstance().getUid())){
                 changeProfilePic.setVisibility(View.INVISIBLE);
+                signOutButton.setVisibility(View.INVISIBLE);
             }
         }
         else{
@@ -73,6 +75,13 @@ public class ProfileActivity extends AppCompatActivity {
                     default: break;
                 }
                 return true;
+            }
+        });
+        signOutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
             }
         });
         storage = FirebaseStorage.getInstance();
